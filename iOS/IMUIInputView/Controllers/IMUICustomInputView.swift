@@ -20,9 +20,10 @@ fileprivate var IMUIFeatureSelectorHeight:CGFloat = 46
 fileprivate var IMUIShowFeatureViewAnimationDuration = 0.25
 
 open class IMUICustomInputView: UIView {
-  @objc open var inputTextViewPadding: UIEdgeInsets = UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12)
+  @objc open var inputTextViewPadding: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
   @objc open var inputTextViewHeightRange: UIFloatRange = UIFloatRange(minimum: 20, maximum: 60)
   
+    @objc open var textInputBgColor: UIColor = UIColor(netHex: 0xffffff)
   @objc open var inputTextViewTextColor: UIColor = UIColor(netHex: 0x555555)
   @objc open var inputTextViewFont: UIFont = UIFont.systemFont(ofSize: 18)
   
@@ -49,7 +50,8 @@ open class IMUICustomInputView: UIView {
   
   @IBOutlet var view: UIView!
   
-  
+    @IBOutlet open weak var viewTextInput: UIView!
+    
   @IBOutlet weak var moreViewHeight: NSLayoutConstraint!
   
   @IBOutlet weak var inputTextViewHeight: NSLayoutConstraint!
@@ -83,6 +85,12 @@ open class IMUICustomInputView: UIView {
     self.inputTextView.textColor = inputTextViewTextColor
     self.inputTextView.layoutManager.allowsNonContiguousLayout = false
     inputTextView.delegate = self
+    
+    self.inputTextView.backgroundColor = textInputBgColor
+    self.viewTextInput.backgroundColor = textInputBgColor
+    self.viewTextInput.layer.cornerRadius = 5
+    self.setBackgroundColor(color: textInputBgColor)
+    view.backgroundColor = textInputBgColor
   }
   
   open override func awakeFromNib() {
@@ -116,13 +124,23 @@ open class IMUICustomInputView: UIView {
     self.leftInputBarItemListView.position = .left
     self.rightInputBarItemListView.position = .right
     
+    self.inputTextView.backgroundColor = textInputBgColor
+    self.viewTextInput.backgroundColor = textInputBgColor
+    self.viewTextInput.layer.cornerRadius = 5
+    self.setBackgroundColor(color: textInputBgColor)
+    view.backgroundColor = textInputBgColor
   }
   
   @objc public func layoutInputBar() {
     let bottomCount = self.inputViewDataSource?.imuiInputView(self.bottomInputBarItemListView.featureListCollectionView, numberForItemAt: .bottom) ?? 0
     
     if bottomCount == 0 {
-      self.bottomInputBarItemListViewHeight.constant = 8
+        if #available(iOS 11.0, *) {
+            self.bottomInputBarItemListViewHeight.constant = 8
+        } else {
+            // Fallback on earlier versions
+            self.bottomInputBarItemListViewHeight.constant = 8
+        }
     }
     
     self.rightInputBarItemListViewWidth.constant = self.rightInputBarItemListView.totalWidth
@@ -168,6 +186,7 @@ open class IMUICustomInputView: UIView {
   }
   
   @objc func keyboardFrameChanged(_ notification: Notification) {
+    //return;
     let dic = NSDictionary(dictionary: (notification as NSNotification).userInfo!)
     let keyboardValue = dic.object(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue
     let bottomDistance = UIScreen.main.bounds.size.height - keyboardValue.cgRectValue.origin.y
@@ -181,9 +200,7 @@ open class IMUICustomInputView: UIView {
       }
     }
     
-    DispatchQueue.main.async {
-        self.superview?.layoutIfNeeded()
-    }
+    self.superview?.layoutIfNeeded()
   }
   
   func fitTextViewSize(_ textView: UITextView) {

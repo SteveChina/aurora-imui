@@ -13,6 +13,9 @@ import java.util.List;
 import cn.jiguang.imui.messagelist.viewmanager.ReactChatInputManager;
 import cn.jiguang.imui.messagelist.viewmanager.ReactMsgListManager;
 
+import cn.jiguang.imui.messagelist.viewmanager.ReactChatInputManagerGroup;
+import cn.jiguang.imui.messagelist.viewmanager.ReactMsgListManagerGroup;
+
 /**
  * Created by caiyaoguan on 2017/5/24.
  */
@@ -23,6 +26,7 @@ public class ReactIMUIPackage implements ReactPackage {
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> nativeModules = new ArrayList<>();
         nativeModules.add(new AuroraIMUIModule(reactContext));
+        nativeModules.add(new AuroraIMUIModuleGroup(reactContext));
         return nativeModules;
     }
 
@@ -35,6 +39,8 @@ public class ReactIMUIPackage implements ReactPackage {
         List<ViewManager> viewManagers = new ArrayList<>();
         viewManagers.add(new ReactMsgListManager());
         viewManagers.add(new ReactChatInputManager());
+        viewManagers.add(new ReactMsgListManagerGroup());
+        viewManagers.add(new ReactChatInputManagerGroup());
         return  viewManagers;
     }
 }

@@ -1,5 +1,5 @@
 //
-//  RCTInputViewManager.m
+//  RCTInputViewGroupManager.m
 //  imuiDemo
 //
 //  Created by oshumini on 2017/5/27.
@@ -13,12 +13,12 @@
 #import <Photos/Photos.h>
 #import "RCTAuroraIMUIFileManager.h"
 
-@interface RCTInputViewManager : RCTViewManager <IMUIInputViewDelegate>
+@interface RCTInputViewGroupManager : RCTViewManager <IMUIInputViewDelegate>
 
 @property (strong, nonatomic)RCTInputView *rctInputView;
 @end
 
-@implementation RCTInputViewManager
+@implementation RCTInputViewGroupManager
 
 //RCT_EXPORT_VIEW_PROPERTY(onEventCallBack, RCTBubblingEventBlock)
 
@@ -61,8 +61,6 @@ RCT_CUSTOM_VIEW_PROPERTY(chatInputBackgroundColor, NSString, RCTInputView) {
       view.backgroundColor = color;
     }
   }
-    _rctInputView.backgroundColor = color;
-    _rctInputView.imuiIntputView.backgroundColor = color;
   [_rctInputView.imuiIntputView setBackgroundColorWithColor: color];
 }
 
@@ -76,16 +74,6 @@ RCT_CUSTOM_VIEW_PROPERTY(inputPadding, NSDictionary, RCTInputView) {
                                                                        [left floatValue],
                                                                        [bottom floatValue],
                                                                        [right floatValue]);
-}
-
-RCT_CUSTOM_VIEW_PROPERTY(textInputBgColor, NSString, RCTInputView) {
-  NSString *colorString = [RCTConvert NSString: json];
-  UIColor *color = [UIColor hexStringToUIColorWithHex:colorString];
-  if (color != nil) {
-    _rctInputView.imuiIntputView.textInputBgColor = color;
-    _rctInputView.imuiIntputView.inputTextView.backgroundColor = color;
-      _rctInputView.imuiIntputView.viewTextInput.backgroundColor = color;
-  }
 }
 
 RCT_CUSTOM_VIEW_PROPERTY(inputTextColor, NSString, RCTInputView) {

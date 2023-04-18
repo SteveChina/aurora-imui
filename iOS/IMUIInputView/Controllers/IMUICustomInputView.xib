@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="ipad9_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,6 +23,7 @@
                 <outlet property="paddingTop" destination="shA-jA-VUO" id="fYE-Sx-eqR"/>
                 <outlet property="rightInputBarItemListView" destination="xjf-qu-ADD" id="HV1-hX-b7w"/>
                 <outlet property="rightInputBarItemListViewWidth" destination="UXf-aX-hmR" id="3G4-m7-2bM"/>
+                <outlet property="viewTextInput" destination="3Cb-U2-c9G" id="n3c-rH-57Y"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -40,18 +39,18 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEz-Ll-nbj" customClass="IMUIFeatureListView" customModule="RCTAuroraIMUI" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="4" width="16" height="32"/>
+                    <rect key="frame" x="0.0" y="8" width="16" height="28"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="32" id="4Wn-cQ-Jfg"/>
+                        <constraint firstAttribute="height" constant="28" id="4Wn-cQ-Jfg"/>
                         <constraint firstAttribute="width" constant="16" id="Ufo-bz-eS6"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Cb-U2-c9G">
-                    <rect key="frame" x="16" y="0.0" width="370" height="36"/>
+                    <rect key="frame" x="18" y="8" width="339" height="28"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="q3k-Vv-eYJ">
-                            <rect key="frame" x="14" y="9" width="343" height="20"/>
+                            <rect key="frame" x="14" y="0.0" width="312" height="20"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="18d-oS-Mnx"/>
@@ -67,16 +66,16 @@
                     <constraints>
                         <constraint firstItem="q3k-Vv-eYJ" firstAttribute="leading" secondItem="3Cb-U2-c9G" secondAttribute="leading" constant="14" id="PQt-BA-knv"/>
                         <constraint firstAttribute="trailing" secondItem="q3k-Vv-eYJ" secondAttribute="trailing" constant="13" id="eAk-Y4-eRz"/>
-                        <constraint firstItem="q3k-Vv-eYJ" firstAttribute="top" secondItem="3Cb-U2-c9G" secondAttribute="top" constant="9" id="shA-jA-VUO"/>
-                        <constraint firstAttribute="bottom" secondItem="q3k-Vv-eYJ" secondAttribute="bottom" constant="9" id="zYO-BI-2Mu"/>
+                        <constraint firstItem="q3k-Vv-eYJ" firstAttribute="top" secondItem="3Cb-U2-c9G" secondAttribute="top" id="shA-jA-VUO"/>
+                        <constraint firstAttribute="bottom" secondItem="q3k-Vv-eYJ" secondAttribute="bottom" id="zYO-BI-2Mu"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xjf-qu-ADD" customClass="IMUIFeatureListView" customModule="RCTAuroraIMUI" customModuleProvider="target">
-                    <rect key="frame" x="386" y="4" width="16" height="32"/>
+                    <rect key="frame" x="359" y="-4" width="40" height="40"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="16" id="UXf-aX-hmR"/>
-                        <constraint firstAttribute="height" constant="32" id="fjm-7h-WUZ"/>
+                        <constraint firstAttribute="width" constant="40" id="UXf-aX-hmR"/>
+                        <constraint firstAttribute="height" constant="40" id="fjm-7h-WUZ"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJx-AS-B6d" customClass="IMUIFeatureListView" customModule="RCTAuroraIMUI" customModuleProvider="target">
@@ -89,13 +88,13 @@
             </subviews>
             <color key="backgroundColor" red="0.95283776521682739" green="0.95300072431564331" blue="0.95282751321792603" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="3Cb-U2-c9G" firstAttribute="leading" secondItem="nEz-Ll-nbj" secondAttribute="trailing" id="56c-t0-ddY"/>
-                <constraint firstAttribute="trailing" secondItem="xjf-qu-ADD" secondAttribute="trailing" id="7MF-MS-rCw"/>
+                <constraint firstItem="3Cb-U2-c9G" firstAttribute="leading" secondItem="nEz-Ll-nbj" secondAttribute="trailing" constant="2" id="56c-t0-ddY"/>
+                <constraint firstAttribute="trailing" secondItem="xjf-qu-ADD" secondAttribute="trailing" constant="3" id="7MF-MS-rCw"/>
                 <constraint firstItem="xJx-AS-B6d" firstAttribute="top" secondItem="nEz-Ll-nbj" secondAttribute="bottom" id="ATB-WY-W78"/>
                 <constraint firstItem="t9V-LN-RmM" firstAttribute="top" secondItem="xJx-AS-B6d" secondAttribute="bottom" id="INR-I3-hHZ"/>
                 <constraint firstItem="xJx-AS-B6d" firstAttribute="top" secondItem="3Cb-U2-c9G" secondAttribute="bottom" id="RDB-KL-PWN"/>
-                <constraint firstItem="3Cb-U2-c9G" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="YZv-F0-ipk"/>
-                <constraint firstItem="xjf-qu-ADD" firstAttribute="leading" secondItem="3Cb-U2-c9G" secondAttribute="trailing" id="Zst-dy-9PB"/>
+                <constraint firstItem="3Cb-U2-c9G" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="YZv-F0-ipk"/>
+                <constraint firstItem="xjf-qu-ADD" firstAttribute="leading" secondItem="3Cb-U2-c9G" secondAttribute="trailing" constant="2" id="Zst-dy-9PB"/>
                 <constraint firstItem="xJx-AS-B6d" firstAttribute="top" secondItem="xjf-qu-ADD" secondAttribute="bottom" id="aCR-Oj-C7u"/>
                 <constraint firstItem="t9V-LN-RmM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="caC-5F-djf"/>
                 <constraint firstItem="xJx-AS-B6d" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gnG-8J-zlX"/>

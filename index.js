@@ -7,11 +7,18 @@ import {
 import ChatInput from './ReactNative/chatinput';
 import MessageList from './ReactNative/messagelist';
 
+import ChatInputGroup from './ReactNative/chatinputgroup';
+import MessageListGroup from './ReactNative/messagelistgroup';
+
 const AuroraIMUIModule = NativeModules.AuroraIMUIModule;
+const AuroraIMUIModuleGroup = NativeModules.AuroraIMUIModuleGroup;
 
 const listeners = {};
 const IMUIMessageListDidLoad = "IMUIMessageListDidLoad";
 const GET_INPUT_TEXT_EVENT = "getInputText";
+
+const IMUIMessageListDidLoadGroup = "IMUIMessageListDidLoadGroup";
+const GET_INPUT_TEXT_EVENT_GROUP = "getInputTextGroup";
 
 class AuroraIMUIController {
 	/**
@@ -147,12 +154,151 @@ class AuroraIMUIController {
 	        cb(result);
 	    });
 	}
+};
 	
-	
-}
+//------------------------------group api------------------------------------------
+class AuroraIMUIControllerGroup {
+	/**
+	 * append messages into messageList's bottom
+	 * 
+	 * @param {Array} messageList  [message]
+	 */
+	 static appendMessages(messageList) {
+		AuroraIMUIModuleGroup.appendMessages(messageList)
+	}
+
+	/**
+	 * update Messages. NOTE: It will replace message according to msgID.
+	 * @param {Array} messageList  [message]
+	 */
+	static updateMessage(messageList) {
+		AuroraIMUIModuleGroup.updateMessage(messageList)
+	}
+
+	/**
+	 * insert messages into messageList's top, the message list to be inserted must be sorted chronologically.
+	 * @param {Array} messageList  [message]
+	 */
+	static insertMessagesToTop(messageList) {
+		AuroraIMUIModuleGroup.insertMessagesToTop(messageList)
+	}
+
+	/**
+	 * remove message from messageList
+	 * @param {String} messageId
+	 */
+	static removeMessage(messageId) {
+		AuroraIMUIModuleGroup.removeMessage(messageId)
+	}
+
+	/**
+	 * stop play voice 
+	 */
+	static stopPlayVoice() {
+		AuroraIMUIModuleGroup.stopPlayVoice()
+	}
+
+	/**
+	 * scroll messageList to bottom
+	 * @param {Boolean} animate 
+	 */
+	static scrollToBottom(animate) {
+		AuroraIMUIModuleGroup.scrollToBottom(animate)
+	}
+
+	/**
+	 * hiden featureView
+	 * @param {Boolean} animate 
+	 */
+	static hidenFeatureView(animate) {
+		AuroraIMUIModuleGroup.hidenFeatureView(animate)
+	}
+
+	/**
+	 * layout input view
+	 */
+	static layoutInputView() {
+		AuroraIMUIModuleGroup.layoutInputView()
+	}
+
+	/**
+	 * add listener: messageList did Loaded will call cb
+	 * @param {Function} cb 
+	 */
+	 static addMessageListDidLoadListener(cb) {
+		listeners[cb] = DeviceEventEmitter.addListener(IMUIMessageListDidLoadGroup,
+			() => {
+				cb();
+			});
+	}
+
+	/**
+	 * Get Input text, Android Only
+	 * @param {Function} cb
+	 * @param {String} text 
+	 */
+	static addGetInputTextListener(cb) {
+		listeners[cb] = DeviceEventEmitter.addListener(GET_INPUT_TEXT_EVENT_GROUP, (text) => {
+			cb(text);
+		});
+	}
+
+	/**
+	 * remove listener:
+	 * @param {Function} cb 
+	 */
+	static removeMessageListDidLoadListener(cb) {
+		if (!listeners[cb]) {
+			return;
+		}
+		listeners[cb].remove();
+		listeners[cb] = null;
+	}
+
+	static removeGetInputTextListener(cb) {
+		if (!listeners[cb]) {
+			return;
+		}
+		listeners[cb].remove();
+		listeners[cb] = null;
+	}
+
+	/**
+	 * 清空所有消息
+	 */
+	static removeAllMessage() {
+		AuroraIMUIModuleGroup.removeAllMessage();
+	}
+
+    /**
+     * 裁剪图片，将图片裁剪成 width * height 大小
+     * param = { "path": String, "width": number, "height": number }
+     * result = { "code": number(0 表示裁剪成功，否则不成功), "thumbPath": String }
+     */
+	static scaleImage(param, cb) {
+	    AuroraIMUIModuleGroup.scaleImage(param, (result) => {
+	        cb(result);
+	    });
+	}
+
+	/**
+     * 压缩图片，将图片压缩成指定质量的大小
+     * param = { "path": String, "compressionQuality": number } // compressionQuality = {0 - 1} 
+     * result = { "code": number(0 表示压缩成功，否则不成功), "thumbPath": String }
+     */
+	static compressImage(param, cb) {
+	    AuroraIMUIModuleGroup.compressImage(param, (result) => {
+	        cb(result);
+	    });
+	}	
+};
 
 module.exports = {
 	ChatInput: ChatInput,
 	MessageList: MessageList,
 	AuroraIMUIController: AuroraIMUIController,
+
+	ChatInputGroup: ChatInputGroup,
+	MessageListGroup: MessageListGroup,
+	AuroraIMUIControllerGroup: AuroraIMUIControllerGroup
 };

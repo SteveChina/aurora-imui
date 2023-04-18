@@ -59,7 +59,7 @@ import cn.jiguang.imui.chatinput.listener.RecordVoiceListener;
 import cn.jiguang.imui.chatinput.menu.Menu;
 import cn.jiguang.imui.chatinput.model.FileItem;
 import cn.jiguang.imui.chatinput.model.VideoItem;
-import cn.jiguang.imui.messagelist.AuroraIMUIModule;
+import cn.jiguang.imui.messagelist.AuroraIMUIModuleGroup;
 import cn.jiguang.imui.messagelist.R;
 import cn.jiguang.imui.messagelist.event.GetTextEvent;
 import cn.jiguang.imui.messagelist.event.OnTouchMsgListEvent;
@@ -72,9 +72,9 @@ import pub.devrel.easypermissions.EasyPermissions;
  * Created by caiyaoguan on 2017/5/22.
  */
 
-public class ReactChatInputManager extends ViewGroupManager<ChatInputView> implements EasyPermissions.PermissionCallbacks {
+public class ReactChatInputManagerGroup extends ViewGroupManager<ChatInputView> implements EasyPermissions.PermissionCallbacks {
 
-    private static final String REACT_CHAT_INPUT = "RCTChatInput";
+    private static final String REACT_CHAT_INPUT = "RCTChatInputGroup";
 
     private static final String ON_SEND_TEXT_EVENT = "onSendText";
     private static final String ON_SEND_FILES_EVENT = "onSendGalleryFiles";
@@ -675,7 +675,7 @@ public class ReactChatInputManager extends ViewGroupManager<ChatInputView> imple
 
     @ReactProp(name = "menuContainerHeight")
     public void setMenuContainerHeight(ChatInputView chatInputView, int height) {
-        Log.d("ReactChatInputManager", "Setting menu container height: " + height);
+        Log.d("ReactChatInputManagerGroup", "Setting menu container height: " + height);
         mMenuContainerHeight = height;
 //        chatInputView.setMenuContainerHeight(height);
     }
@@ -862,7 +862,7 @@ public class ReactChatInputManager extends ViewGroupManager<ChatInputView> imple
                 break;
             case GET_INPUT_TEXT:
                 EventBus.getDefault().post(new GetTextEvent(root.getInputView().getText().toString(),
-                        AuroraIMUIModule.GET_INPUT_TEXT_EVENT));
+                        AuroraIMUIModuleGroup.GET_INPUT_TEXT_EVENT));
                 break;
             case RESET_MENU_STATE:
                 try {

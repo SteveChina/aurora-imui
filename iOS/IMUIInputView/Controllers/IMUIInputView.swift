@@ -126,8 +126,8 @@ open class IMUIInputView: IMUICustomInputView {
                                                       UIImage.imuiImage(with:"input_item_emoji")))
     
     inputBarItemData.bottom.append(IMUIFeatureIconModel(featureType: .none,
-                                                      UIImage.imuiImage(with: "input_item_send"),
-                                                      UIImage.imuiImage(with:"input_item_send_message_selected"),
+                                                      UIImage.imuiImage(with: "aurora_menuitem_send"),
+                                                      UIImage.imuiImage(with:"aurora_menuitem_send_pres"),
                                                       0,
                                                       false))
     self.registerCellForInputView()
@@ -197,8 +197,8 @@ open class IMUIInputView: IMUICustomInputView {
     
     if itemStr == "send" {
       return IMUIFeatureIconModel(featureType: .none,
-                           UIImage.imuiImage(with: "input_item_send"),
-                           UIImage.imuiImage(with:"input_item_send_message_selected"),
+                           UIImage.imuiImage(with: "aurora_menuitem_send"),
+                           UIImage.imuiImage(with:"aurora_menuitem_send_pres"),
                            0,
                            false)
     }
@@ -295,7 +295,7 @@ extension IMUIInputView: IMUICustomInputViewDataSource {
   public func imuiInputView(_ inputBarItemListView: UICollectionView,
                      _ position: IMUIInputViewItemPosition,
                      sizeForIndex indexPath: IndexPath) -> CGSize {
-    return CGSize(width: 30, height: 30)
+    return CGSize(width: 40, height: 40)
   }
   
   public func imuiInputView(_ inputBarItemListView: UICollectionView,

@@ -1,27 +1,27 @@
 //
-//  RCTAuroraIMUIModule.m
-//  RCTAuroraIMUIModule
+//  RCTAuroraIMUIModuleGroup.m
+//  RCTAuroraIMUIModuleGroup
 //
 //  Created by oshumini on 2017/6/1.
 //  Copyright © 2017年 HXHG. All rights reserved.
 //
 
-#import "RCTAuroraIMUIModule.h"
+#import "RCTAuroraIMUIModuleGroup.h"
 #import <RCTAuroraIMUI/RCTAuroraIMUI-Swift.h>
 #import "RCTAuroraIMUIFileManager.h"
 
-@interface RCTAuroraIMUIModule () {
+@interface RCTAuroraIMUIModuleGroup () {
 }
 
 @end
 
-@implementation RCTAuroraIMUIModule
+@implementation RCTAuroraIMUIModuleGroup
 RCT_EXPORT_MODULE();
 
 @synthesize bridge = _bridge;
 
 + (id)allocWithZone:(NSZone *)zone {
-  static RCTAuroraIMUIModule *sharedInstance = nil;
+  static RCTAuroraIMUIModuleGroup *sharedInstance = nil;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
     sharedInstance = [super allocWithZone:zone];
@@ -34,7 +34,7 @@ RCT_EXPORT_MODULE();
   
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(messageDidLoad:)
-                                               name:kMessageListDidLoad object:nil];
+                                               name:kMessageListDidLoadGroup object:nil];
   self = [super init];
   [RCTAuroraIMUIFileManager createDirectory:@"RCTAuroraIMUI" atFilePath:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]];
   return self;
@@ -46,32 +46,32 @@ RCT_EXPORT_MODULE();
 }
 
 - (void)messageDidLoad:(NSNotification *) notification {
-  [self.bridge.eventDispatcher sendAppEventWithName:@"IMUIMessageListDidLoad"
+  [self.bridge.eventDispatcher sendAppEventWithName:@"IMUIMessageListDidLoadGroup"
                                                body:nil];
 }
 
 RCT_EXPORT_METHOD(appendMessages:(NSArray *)messages) {
-  [[NSNotificationCenter defaultCenter] postNotificationName:kAppendMessages object: messages];
+  [[NSNotificationCenter defaultCenter] postNotificationName:kAppendMessageGroup object: messages];
 }
 
 RCT_EXPORT_METHOD(removeMessage:(NSString *)messageId) {
-  [[NSNotificationCenter defaultCenter] postNotificationName:kRemoveMessage object: messageId];
+  [[NSNotificationCenter defaultCenter] postNotificationName:kRemoveMessageGroup object: messageId];
 }
 
 RCT_EXPORT_METHOD(removeAllMessage) {
-  [[NSNotificationCenter defaultCenter] postNotificationName:kRemoveAllMessages object: nil];
+  [[NSNotificationCenter defaultCenter] postNotificationName:kRemoveAllMessagesGroup object: nil];
 }
 
 RCT_EXPORT_METHOD(updateMessage:(NSDictionary *)message) {
-  [[NSNotificationCenter defaultCenter] postNotificationName:kUpdateMessge object: message];
+  [[NSNotificationCenter defaultCenter] postNotificationName:kUpdateMessgeGroup object: message];
 }
 
 RCT_EXPORT_METHOD(insertMessagesToTop:(NSArray *)messages) {
-  [[NSNotificationCenter defaultCenter] postNotificationName:kInsertMessagesToTop object: messages];
+  [[NSNotificationCenter defaultCenter] postNotificationName:kInsertMessagesToTopGroup object: messages];
 }
 
 RCT_EXPORT_METHOD(scrollToBottom:(BOOL) animate) {
-  [[NSNotificationCenter defaultCenter] postNotificationName:kScrollToBottom object: @(animate)];
+  [[NSNotificationCenter defaultCenter] postNotificationName:kScrollToBottomGroup object: @(animate)];
 }
 
 RCT_EXPORT_METHOD(hidenFeatureView:(BOOL) animate) {

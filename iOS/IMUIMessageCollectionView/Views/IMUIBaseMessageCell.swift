@@ -44,6 +44,7 @@ open class IMUIBaseMessageCell: UICollectionViewCell, IMUIMessageCellProtocol {
     self.contentView.addSubview(self.nameLabel)
     avatarImage.layer.masksToBounds = true
     self.avatarImage.layer.cornerRadius = CGFloat(IMUIBaseMessageCell.avatarCornerRadius)
+    self.avatarImage.contentMode = .scaleAspectFill
     
     let bubbleGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapBubbleView))
     let longPressBubbleGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longTapBubbleView))

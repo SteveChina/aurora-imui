@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
 
 import cn.jiguang.imui.commons.ImageLoader;
 import cn.jiguang.imui.commons.models.IMessage;
-import cn.jiguang.imui.messagelist.AuroraIMUIModule;
+import cn.jiguang.imui.messagelist.AuroraIMUIModuleGroup;
 import cn.jiguang.imui.messagelist.CustomViewHolder;
 import cn.jiguang.imui.messagelist.IdHelper;
 import cn.jiguang.imui.messagelist.R;
@@ -81,9 +81,9 @@ import static android.content.Context.SENSOR_SERVICE;
  * Created by caiyaoguan on 2017/5/22.
  */
 
-public class ReactMsgListManager extends ViewGroupManager<PullToRefreshLayout> implements SensorEventListener {
+public class ReactMsgListManagerGroup extends ViewGroupManager<PullToRefreshLayout> implements SensorEventListener {
 
-    private static final String REACT_MESSAGE_LIST = "RCTMessageList";
+    private static final String REACT_MESSAGE_LIST = "RCTMessageListGroup";
     private final static int STOP_REFRESH = 0;
     private static final String ON_PULL_TO_REFRESH_EVENT = "onPullToRefresh";
 
@@ -98,12 +98,12 @@ public class ReactMsgListManager extends ViewGroupManager<PullToRefreshLayout> i
     private static final String ON_STATUS_VIEW_CLICK_EVENT = "onStatusViewClick";
     private static final String ON_TOUCH_MSG_LIST_EVENT = "onTouchMsgList";
 
-    public static final String RCT_APPEND_MESSAGES_ACTION = "cn.jiguang.imui.messagelist.intent.appendMessages";
-    public static final String RCT_UPDATE_MESSAGE_ACTION = "cn.jiguang.imui.messagelist.intent.updateMessage";
-    public static final String RCT_INSERT_MESSAGES_ACTION = "cn.jiguang.imui.messagelist.intent.insertMessages";
-    public static final String RCT_SCROLL_TO_BOTTOM_ACTION = "cn.jiguang.imui.messagelist.intent.scrollToBottom";
-    public static final String RCT_REMOVE_MESSAGE_ACTION = "cn.jiguang.imui.messagelist.intent.removeMessage";
-    public static final String RCT_REMOVE_ALL_MESSAGE_ACTION = "cn.jiguang.imui.messagelist.intent.removeAllMessages";
+    public static final String RCT_APPEND_MESSAGES_ACTION = "cn.jiguang.imui.messagelist.intent.appendMessagesGroup";
+    public static final String RCT_UPDATE_MESSAGE_ACTION = "cn.jiguang.imui.messagelist.intent.updateMessageGroup";
+    public static final String RCT_INSERT_MESSAGES_ACTION = "cn.jiguang.imui.messagelist.intent.insertMessagesGroup";
+    public static final String RCT_SCROLL_TO_BOTTOM_ACTION = "cn.jiguang.imui.messagelist.intent.scrollToBottomGroup";
+    public static final String RCT_REMOVE_MESSAGE_ACTION = "cn.jiguang.imui.messagelist.intent.removeMessageGroup";
+    public static final String RCT_REMOVE_ALL_MESSAGE_ACTION = "cn.jiguang.imui.messagelist.intent.removeAllMessagesGroup";
 
     private MsgListAdapter mAdapter;
     private ReactContext mContext;
@@ -313,8 +313,8 @@ public class ReactMsgListManager extends ViewGroupManager<PullToRefreshLayout> i
                 return false;
             }
         });
-        // 通知 AuroraIMUIModule 完成初始化 MessageList
-        EventBus.getDefault().post(new LoadedEvent(AuroraIMUIModule.RCT_MESSAGE_LIST_LOADED_ACTION));
+        // 通知 AuroraIMUIModuleGroup 完成初始化 MessageList
+        EventBus.getDefault().post(new LoadedEvent(AuroraIMUIModuleGroup.RCT_MESSAGE_LIST_LOADED_ACTION));
         return rootView;
     }
 
@@ -342,7 +342,7 @@ public class ReactMsgListManager extends ViewGroupManager<PullToRefreshLayout> i
             case RCT_APPEND_MESSAGES_ACTION:
                 RCTMessage[] messages = event.getMessages();
                 for (final RCTMessage rctMessage : messages) {
-                    Log.d("RCTMessageListManager", "Add message to start, message: " + rctMessage);
+                    Log.d("RCTMessageListManagerG", "Add message to start, message: " + rctMessage);
                     if (activity != null) {
                         mAdapter.addToStart(rctMessage, true);
                     }
@@ -350,14 +350,14 @@ public class ReactMsgListManager extends ViewGroupManager<PullToRefreshLayout> i
                 break;
             case RCT_UPDATE_MESSAGE_ACTION:
                 RCTMessage rctMessage = event.getMessage();
-                Log.d("RCTMessageListManager", "updating message, message: " + rctMessage);
+                Log.d("RCTMessageListManagerG", "updating message, message: " + rctMessage);
                 if (activity != null) {
                     mAdapter.updateMessage(rctMessage.getMsgId(), rctMessage);
                 }
                 break;
             case RCT_INSERT_MESSAGES_ACTION:
                 messages = event.getMessages();
-                Log.d("RCTMessageListManager", "Add send message to top");
+                Log.d("RCTMessageListManagerG", "Add send message to top");
                 mAdapter.addToEndChronologically(Arrays.asList(messages));
                 break;
             case RCT_REMOVE_MESSAGE_ACTION:

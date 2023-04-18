@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		303F4CAE26A84E9A003DDFDF /* RCTMessageListViewGroup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303F4CAB26A84E9A003DDFDF /* RCTMessageListViewGroup.xib */; };
+		306E2B9026A9B204000E9B68 /* RCTAuroraIMUIModuleGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 303F4CBD26A84FAA003DDFDF /* RCTAuroraIMUIModuleGroup.m */; };
+		306E2B9126A9B204000E9B68 /* RCTInputViewGroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 303F4CE126A85230003DDFDF /* RCTInputViewGroupManager.m */; };
+		306E2B9226A9B204000E9B68 /* RCTMessageListViewGroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 303F4CE026A85230003DDFDF /* RCTMessageListViewGroupManager.m */; };
+		306E2B9326A9B204000E9B68 /* RCTMessageListViewGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 303F4CA926A84E9A003DDFDF /* RCTMessageListViewGroup.m */; };
 		623EA9A21EE55D0800EC43AE /* RCTAuroraIMUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 623EA9991EE55D0800EC43AE /* RCTAuroraIMUI.framework */; };
 		623EA9A71EE55D0800EC43AE /* RCTAuroraIMUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 623EA9A61EE55D0800EC43AE /* RCTAuroraIMUITests.m */; };
 		623EA9A91EE55D0800EC43AE /* RCTAuroraIMUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 623EA99B1EE55D0800EC43AE /* RCTAuroraIMUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -136,6 +141,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		303F4CA926A84E9A003DDFDF /* RCTMessageListViewGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTMessageListViewGroup.m; sourceTree = "<group>"; };
+		303F4CAA26A84E9A003DDFDF /* RCTMessageListViewGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTMessageListViewGroup.h; sourceTree = "<group>"; };
+		303F4CAB26A84E9A003DDFDF /* RCTMessageListViewGroup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCTMessageListViewGroup.xib; sourceTree = "<group>"; };
+		303F4CBD26A84FAA003DDFDF /* RCTAuroraIMUIModuleGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTAuroraIMUIModuleGroup.m; sourceTree = "<group>"; };
+		303F4CBE26A84FAA003DDFDF /* RCTAuroraIMUIModuleGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTAuroraIMUIModuleGroup.h; sourceTree = "<group>"; };
+		303F4CE026A85230003DDFDF /* RCTMessageListViewGroupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTMessageListViewGroupManager.m; sourceTree = "<group>"; };
+		303F4CE126A85230003DDFDF /* RCTInputViewGroupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTInputViewGroupManager.m; sourceTree = "<group>"; };
 		6239E6641EDDB1F700B9AC9C /* libAuroraIMUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAuroraIMUI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		623EA9701EE55CB200EC43AE /* imuiDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "imuiDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		623EA9711EE55CB200EC43AE /* IMUIInputViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMUIInputViewManager.m; sourceTree = "<group>"; };
@@ -275,6 +287,13 @@
 		623EA96F1EE55CB200EC43AE /* RCTAuroraIMUI */ = {
 			isa = PBXGroup;
 			children = (
+				303F4CBE26A84FAA003DDFDF /* RCTAuroraIMUIModuleGroup.h */,
+				303F4CBD26A84FAA003DDFDF /* RCTAuroraIMUIModuleGroup.m */,
+				303F4CE126A85230003DDFDF /* RCTInputViewGroupManager.m */,
+				303F4CE026A85230003DDFDF /* RCTMessageListViewGroupManager.m */,
+				303F4CAA26A84E9A003DDFDF /* RCTMessageListViewGroup.h */,
+				303F4CA926A84E9A003DDFDF /* RCTMessageListViewGroup.m */,
+				303F4CAB26A84E9A003DDFDF /* RCTMessageListViewGroup.xib */,
 				623EA9701EE55CB200EC43AE /* imuiDemo-Bridging-Header.h */,
 				623EA9711EE55CB200EC43AE /* IMUIInputViewManager.m */,
 				623EA9721EE55CB200EC43AE /* Info.plist */,
@@ -294,8 +313,8 @@
 				623EA97C1EE55CB200EC43AE /* RCTInputView.xib */,
 				623EA97D1EE55CB200EC43AE /* RCTInputViewManager.m */,
 				623EA97E1EE55CB200EC43AE /* RCTMessageListView.h */,
-				623EA97F1EE55CB200EC43AE /* RCTMessageListView.m */,
 				623EA9801EE55CB200EC43AE /* RCTMessageListView.xib */,
+				623EA97F1EE55CB200EC43AE /* RCTMessageListView.m */,
 				623EA9811EE55CB200EC43AE /* RCTMessageListViewManager.m */,
 			);
 			path = RCTAuroraIMUI;
@@ -398,6 +417,7 @@
 		62901AC921351D20000296DF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				62901ADD21351D20000296DF /* IMUICameraPreviewView.swift */,
 				62901ACA21351D20000296DF /* IMUICameraCell.swift */,
 				62901ACB21351D20000296DF /* IMUIFeatureListIconCell.swift */,
 				62901ACC21351D20000296DF /* IMUIFeatureListView.xib */,
@@ -417,7 +437,6 @@
 				62901ADA21351D20000296DF /* IMUIGalleryCell.swift */,
 				62901ADB21351D20000296DF /* IMUIEmojiItemCell.swift */,
 				62901ADC21351D20000296DF /* IMUIPermissionDenyedView.swift */,
-				62901ADD21351D20000296DF /* IMUICameraPreviewView.swift */,
 				62901ADE21351D20000296DF /* IMUIEmojiItemCell.xib */,
 				62901ADF21351D20000296DF /* IMUIGalleryCell.xib */,
 				62901AE021351D20000296DF /* IMUIPhotoCaptureDelegate.swift */,
@@ -661,6 +680,7 @@
 					623EA9981EE55D0800EC43AE = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = RL64Y54S9V;
+						LastSwiftMigration = 1230;
 						ProvisioningStyle = Automatic;
 					};
 					623EA9A01EE55D0800EC43AE = {
@@ -675,6 +695,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 626021ED1ED96BA20038AB20;
@@ -696,6 +717,7 @@
 			files = (
 				62901B3B21351D20000296DF /* IMUIGalleryCell.xib in Resources */,
 				62901B2321351D20000296DF /* IMUICustomInputView.xib in Resources */,
+				303F4CAE26A84E9A003DDFDF /* RCTMessageListViewGroup.xib in Resources */,
 				624B82DA1EE57482006C3C03 /* RCTInputView.xib in Resources */,
 				62901B3021351D20000296DF /* IMUIEmojiCell.xib in Resources */,
 				62901B3D21351D20000296DF /* IMUIRecordVoiceCell.xib in Resources */,
@@ -735,6 +757,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				306E2B9026A9B204000E9B68 /* RCTAuroraIMUIModuleGroup.m in Sources */,
+				306E2B9126A9B204000E9B68 /* RCTInputViewGroupManager.m in Sources */,
+				306E2B9226A9B204000E9B68 /* RCTMessageListViewGroupManager.m in Sources */,
+				306E2B9326A9B204000E9B68 /* RCTMessageListViewGroup.m in Sources */,
 				62BD327A20E4D9F900867FBE /* RCTAuroraIMUIFileManager.m in Sources */,
 				62BD327920E4D90000867FBE /* RCTMessageListView.m in Sources */,
 				62BD327820E4D8EB00867FBE /* RCTInputView.m in Sources */,
@@ -850,6 +876,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				DEVELOPMENT_TEAM = RL64Y54S9V;
 				ENABLE_BITCODE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../../ios/Pods/Headers/Public/**";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -862,6 +889,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				DEVELOPMENT_TEAM = RL64Y54S9V;
 				ENABLE_BITCODE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../../ios/Pods/Headers/Public/**";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -872,6 +900,7 @@
 		623EA9AB1EE55D0800EC43AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = RL64Y54S9V;
@@ -879,18 +908,16 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_BITCODE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../../ios/Pods/Headers/Public/**";
 				INFOPLIST_FILE = RCTAuroraIMUI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"-lReact",
-					"-lc++",
-					"-lRCTWebSocket",
-				);
+				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = HXHG.RCTAuroraIMUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -898,6 +925,7 @@
 		623EA9AC1EE55D0800EC43AE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = RL64Y54S9V;
@@ -905,14 +933,11 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_BITCODE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../../ios/Pods/Headers/Public/**";
 				INFOPLIST_FILE = RCTAuroraIMUI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-lReact",
-					"-lc++",
-					"-lRCTWebSocket",
-				);
+				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = HXHG.RCTAuroraIMUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -986,7 +1011,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1032,7 +1057,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
